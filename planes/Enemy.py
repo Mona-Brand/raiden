@@ -8,13 +8,13 @@ class Enemy:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.size = 8
+        self.size = 0
         self.dead = False
         self.health = 1
         self.color = (0, 180, 180)
         self.recoilCounter = 0
         self.bullets = []
-        self.speed = .5
+        self.speed = .8
         self.xDir = 1
         self.rateLimiter = RateLimiter()
 
