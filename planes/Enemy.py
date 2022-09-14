@@ -8,7 +8,7 @@ class Enemy:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.size = 0
+        self.size = 3
         self.dead = False
         self.health = 1
         self.color = (0, 180, 180)
@@ -25,7 +25,7 @@ class Enemy:
 
         if abs(self.y - player.y) < 50:
             if self.rateLimiter.shoot(1):
-                self.bullets.append(Bullet(self.x, self.y, True))
+                self.bullets.append(Bullet(self.x, self.y, 3 * math.pi / 2, 1))
             self.x = self.x + speed * self.xDir
 
             if self.x > WIDTH * .8:

@@ -1,19 +1,20 @@
 import pygame
+import random
+import math
 
 class Bullet:
-    def __init__(self, x, y, down=False, speed=1):
+    def __init__(self, x, y, angle, speed):
         self.x = x
         self.y = y
         self.speed = speed
-        self.size = 4
+        self.size = 4 + 4 * random.random()
         self.spent = False
-        self.down = down
+        self.angle = angle
     
     def update(self, targets):
-        if self.down:
-            self.y += self.speed
-        else:
-            self.y -= self.speed
+        self.size = 3
+        self.y -= math.sin(self.angle)
+        self.x += math.sin(self.angle) / self.speed
 
         for t in targets:
             xDistance = abs(self.x - t.x)

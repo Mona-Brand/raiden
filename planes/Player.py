@@ -3,6 +3,7 @@ from sprites import planeSprite, planeLeftSprite, planeRightSprite, planeBoomSpr
 import math
 import time
 import pygame
+import random
 
 
 class Plane:
@@ -36,7 +37,9 @@ class Plane:
             self.gameOver = time.time() + 2
 
     def shoot(self):
-        self.bullets.append(Bullet(self.x, self.y - self.size/2))
+        self.bullets.append(Bullet(self.x, self.y - self.size/2, math.pi / 2, 2))
+        self.bullets.append(Bullet(self.x, self.y - self.size/2, math.pi / 2, -2))
+#(random.random() - random.random()) * 10 this makes a weird sort of flare
 
     def handleInputs(self):
         if self.gameOver:
